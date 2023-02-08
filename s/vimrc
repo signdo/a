@@ -1,0 +1,81 @@
+" ~/.vimrc
+
+
+" vim-plug 插件管理器
+" 使用 :PlugInstall 安装所有插件
+" ---------------------------------------------------------------------
+
+" https://github.com/junegunn/vim-plug
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+
+" NERDTree
+Plug 'https://github.com/preservim/nerdtree.git'
+
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
+
+
+
+" NERDTree
+" ---------------------------------------------------------------------
+
+" \ + Tab 关闭目录栏
+nnoremap <leader><tab> :NERDTreeToggle<CR>
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTreeToggle | wincmd p
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+
+
+" Powerline
+" ---------------------------------------------------------------------
+
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+" Vim
+" ---------------------------------------------------------------------
+
+set tabstop=4       " Tab 为4空格
+set softtabstop=4   " Backspace 为4空格
+set shiftwidth=4    " 每级缩进长度为4空格
+set expandtab       " Tab 为空格符 (noexpandtab 为制表符)
+set autoindent      " 自动缩进
+
+set number          " 显示行号
+set showmode        " 显示当前模式
+set showmatch       " 高亮匹配的括号
+set ruler           " 显示光标所在坐标
+set incsearch       " 搜索输入高亮
+set hlsearch        " 搜索结果高亮
+set backspace=2     " 退格键可删除任意字符
+
+syntax enable       " 语法显示
+syntax on           " 语法显示
+
+" \ + 空格 退出搜索结果高亮
+nnoremap <silent><space> :nohlsearch<CR>
+" Tab 顺时针切换窗口
+nnoremap <tab> <C-w>w
+
