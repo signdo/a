@@ -41,7 +41,7 @@ if [ -f $(which powerline-daemon) ]; then
 fi
 
 alias vi='vim'
-alias server='python -m http.server'
+alias pyserver='python -m http.server'
 alias tsh='trash'
 alias ssup='sudo dnf upgrade'
 
@@ -53,6 +53,8 @@ alias ls='ls -F --color=auto'
 alias l.='ls -d .*'
 alias ll='ls -alh'
 
+alias q='exit'
+
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
@@ -63,3 +65,6 @@ alias zegrep='zegrep --color=auto'
 alias zfgrep='zfgrep --color=auto'
 alias zgrep='zgrep --color=auto'
 
+
+# temp
+alias lsbt='aria2c --show-files'
