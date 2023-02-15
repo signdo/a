@@ -71,8 +71,7 @@ set incsearch       " 搜索输入高亮
 set hlsearch        " 搜索结果高亮
 set backspace=2     " 退格键可删除任意字符
 
-syntax enable       " 语法显示
-syntax on           " 语法显示
+syntax on       " 语法显示
 
 " \ + 空格 退出搜索结果高亮
 nnoremap <silent><space> :nohlsearch<CR>

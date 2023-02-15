@@ -42,8 +42,10 @@ fi
 
 alias vi='vim'
 alias pyserver='python -m http.server'
+alias ipy='ipython'
 alias tsh='trash'
 alias ssup='sudo dnf upgrade'
+alias lsbt='aria2c --show-files'
 
 alias cp='cp -i'
 alias mv='mv -i'
@@ -66,5 +68,3 @@ alias zfgrep='zfgrep --color=auto'
 alias zgrep='zgrep --color=auto'
 
 
-# temp
-alias lsbt='aria2c --show-files'
