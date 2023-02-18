@@ -75,6 +75,4 @@ syntax on       " 语法显示
 
 " \ + 空格 退出搜索结果高亮
 nnoremap <silent><space> :nohlsearch<CR>
-" Tab 顺时针切换窗口
-nnoremap <tab> <C-w>w
 
